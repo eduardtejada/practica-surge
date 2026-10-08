@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica de Integracion Continua - Surge.sh</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --background: #f8fafc;
+            --card-background: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: var(--card-background);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 2rem;
+        }
+
+        .header-content {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.025em;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.75rem;
+            background-color: #dcfce7;
+            color: var(--success-color);
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            border: 1px solid #bbf7d0;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        .hero {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .info-card h2 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .info-card ul {
+            list-style-type: none;
+        }
+
+        .info-card li {
+            padding: 0.35rem 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card strong {
+            color: var(--text-main);
+        }
+
+        .workflow-section {
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .workflow-section h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .pipeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 1rem;
+            background-color: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .step-number {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            min-width: 1.5rem;
+        }
+
+        .step-text h3 {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-text p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: var(--card-background);
+            border-top: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.65rem 1.25rem;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background-color: var(--primary-hover);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">ITLA DevOps</div>
+            <div class="status-badge">Despliegue Automatico Activo</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Practica de Integracion Continua</h1>
+            <p>Despliegue automatizado de aplicacion web estatica hacia Surge.sh mediante GitHub Actions.</p>
+            <a class="btn-link" href="https://github.com/eduardtejada/practica-surge" target="_blank" rel="noopener noreferrer">Ver Repositorio en GitHub</a>
+        </section>
+
+        <section class="info-grid">
+            <article class="info-card">
+                <h2>Datos del Estudiante</h2>
+                <ul>
+                    <li><strong>Estudiante:</strong> Eduard Tejada</li>
+                    <li><strong>Institucion:</strong> Instituto Tecnologico de Las Americas (ITLA)</li>
+                    <li><strong>Materia:</strong> DevOps / Electiva</li>
+                    <li><strong>Plataforma Destino:</strong> Surge.sh</li>
+                </ul>
+            </article>
+
+            <article class="info-card">
+                <h2>Tecnologias Utilizadas</h2>
+                <ul>
+                    <li><strong>Control de Versiones:</strong> Git & GitHub</li>
+                    <li><strong>CI/CD:</strong> GitHub Actions</li>
+                    <li><strong>Alojamiento:</strong> Surge.sh Static Web Publishing</li>
+                    <li><strong>Seguridad:</strong> GitHub Repository Secrets</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="workflow-section">
+            <h2>Flujo del Pipeline de CI/CD</h2>
+            <div class="pipeline-steps">
+                <div class="step-item">
+                    <span class="step-number">1.</span>
+                    <div class="step-text">
+                        <h3>Commit y Push Local</h3>
+                        <p>Los cambios en el codigo fuente son confirmados y enviados a la rama principal en GitHub.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">2.</span>
+                    <div class="step-text">
+                        <h3>Disparo de GitHub Actions</h3>
+                        <p>El evento de push activa automaticamente el flujo de trabajo configurado en .github/workflows/main.yaml.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3.</span>
+                    <div class="step-text">
+                        <h3>Despliegue Seguro en Surge.sh</h3>
+                        <p>Se utiliza el token de autenticacion guardado de forma segura en los Secrets del repositorio para publicar el sitio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Practica academica realizada por Eduard Tejada - ITLA</p>
+    </footer>
+</body>
+</html>
